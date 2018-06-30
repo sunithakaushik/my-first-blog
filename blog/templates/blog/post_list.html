@@ -7,20 +7,12 @@
             <h1><a href="/">Django Girls Blog</a></h1>
         </div>
 
-        <div>
-            <p>published: 30.06.2018, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Systers is an international Anita B.org community encouraging the participation of all women involved in technology.
-
-We are committed to providing a friendly, safe, and welcoming environment for all, regardless of gender, sexual orientation, ability, ethnicity, socioeconomic status, work experience, or religion (or lack thereof).
-
-We believe in inclusivity, diversity, and transparency. We value open source citizenship and collaborative involvement.</p>
-        </div>
-
-        <div>
-            <p>published: 30.06.2018, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Our projects focus on impacting users and communities by improving their lives with technology. We use various development languages and technologies, while encouraging our contributors to learn new skills and solve new challenges. We host all of our code on GitHub, where contributors can publish and store their code, connect with other open source communities, and learn version control with Git. Github tracks your personal contributions, so you can share them as part of your portfolio.</p>
-        </div>
+        {% for post in posts %}
+          <div>
+              <p>published: {{ post.published_date }}</p>
+              <h1><a href="">{{ post.title }}</a></h1>
+              <p>{{ post.text|linebreaksbr }}</p>
+          </div>
+        {% endfor %}
     </body>
 </html>
